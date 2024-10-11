@@ -1,0 +1,35 @@
+{
+    "name" : "UX Multi Session",
+    "description": "An extension that facilitates a user to browse multiple sessions of the same website",
+    "version": "0.90",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "icons": {
+        "16": "ux_4.png",
+        "32": "ux_4.png",
+        "128": "ux_4.png"
+    },
+    "content_scripts" : [
+        {
+            "matches":[
+                "<all_urls>"
+            ],
+            "js": ["content.js"],
+            "all_frames" : true
+        }
+    ],
+    "options_page": "options.html",
+    "permissions": ["webRequest","webRequestBlocking","webNavigation","browsingData","storage", "activeTab", "tabs", "contextMenus", "cookies", "<all_urls>","chrome://favicon/"],
+    "manifest_version": 2,
+    "browser_action":{
+        "default_icon": {
+            "16": "ux_4.png",
+            "32": "ux_4.png",
+            "128": "ux_4.png"
+        },
+        "default_title" : "UX Session",
+        "default_popup": "popup.html"
+    }
+}
